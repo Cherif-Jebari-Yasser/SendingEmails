@@ -1,0 +1,66 @@
+﻿@using AUTORESPONSE.Models
+@model DropEmails
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        #boite{
+            margin-top:20px;
+            text-align:center;
+        }
+      
+
+        #creative{
+            width:400px;
+            height:400px;
+            margin-left:150px;
+          
+        }
+        #data{
+            width:400px;
+            height:400px;
+            margin-top:30px;
+            margin-left:200px;
+        }
+        #fromName{
+            margin-top:20px;
+            text-align:center;
+        }
+        #submit{
+            text-align:center;
+            margin-top:20px;
+
+        }
+        #subject{
+            width:500px;
+        }
+        
+      
+        
+    </style>
+</head>
+<body>
+    <div>@ViewBag.exception</div>
+           <form action="/Home/Index" method="post">
+               <div id="boite">
+                   <label>Send to </label>@Html.TextBoxFor(Model => Model.sendTo, new { @placeholder = "sendTo" })
+               </div>
+               @Html.TextAreaFor(Model => Model.data, new { @placeholder = "Data" })
+               @Html.TextAreaFor(Model => Model.creative, new { @placeholder = "Creative" })
+              
+            
+                <div id="fromName">
+             <label>From Email</label>   @Html.TextBoxFor(Model => Model.fromName, new { @placeholder = "FromEmail" })
+             <label>Subject</label>  @Html.TextBoxFor(Model => Model.subject, new { @placeholder = "Subject" })
+               </div>
+           
+            
+            <div id="submit"><input type="submit" value="Submit" /></div>
+        </form>
+    
+</body>
+</html>
